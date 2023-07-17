@@ -4,6 +4,8 @@ Fast lightweight Docker network using PHP MySQL Nginx and Node
 ## Personal notes
 
 ~~~bash
+# create these folder outside the container!!!
+# to ensure the have to correct access rights when mounted
 mkdir app
 mkdir mysql
 ~~~
@@ -25,7 +27,13 @@ composer require doctrine
 composer require doctrine/annotations
 ~~~
 
-Outside the container:
+Edit the .env.local so that it contains the correct connection string:
+
+~~~bash
+DATABASE_URL="mysql://root:secret@mysql8-service:3306/app?serverVersion=8&charset=utf8mb4"
+~~~
+
+Outside the container (create the database):
 
 ~~~bash
 docker-compose run --rm php74-service php bin/console doctrine:database:create
@@ -51,3 +59,7 @@ Outside the container
 ~~~bash
 docker-compose run --rm node-service yarn install
 ~~~
+
+## Access the app
+
+http://localhost:8080/

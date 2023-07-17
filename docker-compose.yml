@@ -29,7 +29,7 @@ services:
         ports:
             - "9000:9000"
         volumes:
-            - ./app:/var/www/project:delegated
+            - ./app:/var/www/project
         networks:
             - nginx-php74-mysql8-node
 
