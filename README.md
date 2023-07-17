@@ -5,7 +5,7 @@ Fast lightweight Docker network using PHP MySQL Nginx and Node
 
 ~~~bash
 # create these folder outside the container!!!
-# to ensure the have to correct access rights when mounted
+# to ensure they have to correct access rights when mounted
 mkdir app
 mkdir mysql
 ~~~
